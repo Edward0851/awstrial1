@@ -4,6 +4,7 @@ import Home from './Home';
 import Shop from './Shop';
 import About from './About';
 import React from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 class App extends React.Component {
   constructor(props){
@@ -22,6 +23,11 @@ class App extends React.Component {
   render(){
     return (
       <div>
+        <header>
+        
+        <h1>We now have Auth!</h1>
+      </header>
+      <AmplifySignOut />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/shop" component={Shop} />
@@ -33,4 +39,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuthenticator(App);
